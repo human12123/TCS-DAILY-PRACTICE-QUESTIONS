@@ -1,24 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 string removeDuplicates(string str) {
     unordered_set<char> seen;
+    // String to store the result without duplicates
     string result;
-
+    // Traverse each character 
     for (char ch : str) {
+        // If character is not present in the set
         if (seen.find(ch) == seen.end()) {
+            // Add the result string
             result += ch;
+            // Mark as seen
             seen.insert(ch);
         }
     }
-
     return result;
 }
-
 int main() {
     string str;
     getline(cin, str);
 
+    // Print the string after remove duplicates
     cout << removeDuplicates(str);
 
     return 0;
