@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int findGCD(int a,int b){
+    while(b!=0){
+        int rem=a%b;
+        a=b;
+        b=rem;
+
+    }
+    return a;
+}
+
+int main(){
+    int n;
+    cin>>n;
+    vector<int>arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int gcd=arr[0];
+    
+    for(int i=1;i<n;i++){
+        gcd=findGCD(gcd,arr[i]);
+    }
+    cout<<gcd<<endl;
+    return 0;
+}
