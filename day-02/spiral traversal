@@ -1,0 +1,59 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void spiralTraversal(vector<vector<int>> &arr,int n,int m){
+    // Start the row aur column
+    int top=0;
+    int left=0;
+    // End the row aur column
+    int bottom=n-1;
+    int right=m-1;
+
+    // Jb tk pura matrix cover na ho jaye tbtak kro
+    while(top<=bottom && left<=right){
+        // Left se Right print karenge
+        for(int j=left;j<=right;j++){
+            cout<<arr[top][j]<<" ";
+        }
+        // Top row print ho gyi h
+        top++;
+        // Upar se niche
+        for(int i=top;i<=bottom;i++){
+            cout<<arr[i][right]<<" ";
+        }
+        // Right column print ho gayi
+        right--;
+        // Agar row bachi hai tabhi print karna
+        if(top<=bottom){
+            // Right se Left
+            for(int j=right;j>=left;j--){
+                cout<<arr[bottom][j]<<" ";
+            }
+            // Bottom row ka bhi complete
+            bottom--;
+        }
+        // Agar column bacha hai tabhi print karna warna nahi
+        if(left<=right){
+            for(int i=bottom;i>=top;i--){
+                cout<<arr[i][left]<<" ";
+            }
+            // Left wala column complete
+            left++;
+        }
+    }
+}
+//int main fun sipple
+int main(){
+    int n,m;
+    cin>>n>>m;
+    vector<vector<int>> arr(n,vector<int>(m));
+    // Matrix input
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            cin>>arr[i][j];
+        }
+    }
+    cout<<"Spiral Traversal"<<endl;
+    spiralTraversal(arr,n,m);
+    return 0;
+}
