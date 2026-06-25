@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+using namespace std;
+// Har row ka sum nikalne wala function hai ye
+void rowSum(vector<vector<int>> &arr,int n,int m){
+    cout<<"Row Sum"<<endl;
+    //  harr Ek ek row pe ja rahe hain
+    for(int i=0;i<n;i++){
+        int sum=0;
+        // Current row ke saare elements ko add kar do
+        for(int j=0;j<m;j++){
+            sum+=arr[i][j];
+        }
+        // Current row k  sum ko print kar do
+        cout<<"Row "<<i+1<<" = "<<sum<<endl;
+    }
+}
+// Har column ka sum nikalne wala function hai ye
+void columnSum(vector<vector<int>> &arr,int n,int m){
+
+    cout<<"Column Sum"<<endl;
+    //harr  Ekek column pe ja rahe hain
+    for(int j=0;j<m;j++){
+        int sum=0;
+        //har   Current column ke saare elements add kar do
+        for(int i=0;i<n;i++){
+            sum+=arr[i][j];
+        }
+        //then simply Current column ka sum print kar do
+        cout<<"Column "<<j+1<<" = "<<sum<<endl;
+    }
+}
+//ye to simple hai
+int main(){
+    int n,m;
+    cin>>n>>m;
+    vector<vector<int>> arr(n,vector<int>(m));
+    // Matrix input
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            cin>>arr[i][j];
+        }
+    }
+
+    rowSum(arr,n,m);
+
+    cout<<endl;
+
+    columnSum(arr,n,m);
+
+    return 0;
+}
